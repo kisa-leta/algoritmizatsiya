@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kisa</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet">
+    </head>
+    <body>
+        <button onclick='plus()'>Программа сложения</button>
+        <button onclick='umn()'>Сложение вычитание умножение деление</button>
+        <button onclick='sin()'>Программа вычисления синуса и косинуса</button> </br>
+
+        <script>
+            function plus() { 
+                var a = parseFloat(prompt("Введите первое число").replace(',','.'));
+                var b = parseFloat(prompt("Введите второе число").replace(',','.'));
+                var sum = a+b;
+                alert(`${a} ${b} \n${a}+${b}=${sum}`);
+            }
+
+            function umn() {
+                var a = parseFloat(prompt("Введите первое число").replace(',','.'));
+                var b = parseFloat(prompt("Введите второе число").replace(',','.'));
+                var sum = a+b;
+                var diff = a-b;
+                var mul = a*b;
+                var div = a/b;
+                alert(`${a} ${b} \n${a}+${b}=${sum} \n${a}-${b}=${diff} \n${a}*${b}=${mul} \n${a}/${b}=${div}`);
+            }
+
+            function sin() {
+                var x = parseFloat(prompt("Введите угол в градусах").replace(',','.'));
+                a = x*(Math.PI/180);
+                alert(`${x} \nsin = ${Math.sin(a)} \ncos = ${Math.cos(a)}`)
+            }
+        
+        </script>
+
+            <button onclick='kub()'>Объем куба</button>
+            <button onclick='kole4ko()'>Объем колечка</button>
+            <button onclick='trap()'>Объем трапеции</button>
+
+
+        <script>
+            function kub() { 
+                var a = parseFloat(prompt("Введите длину стороны куба").replace(',','.'));
+                var v = a*a*a;
+                var s = a*a*6;
+                alert(`${a} \nОбъем куба:${v} \nПлощадь боковой поверхности:${s}`);
+            }
+
+            function kole4ko() { 
+                var a = parseFloat(prompt("Введите радиус внешнего круга").replace(',','.'));
+                var b = parseFloat(prompt("Введите радиус внутреннего круга").replace(',','.'));
+                var s = Math.PI*((a*a)-(b*b));
+                alert(`${a} ${b} \nПлощадь кольца:${s}`);
+            }
+
+            function trap() { 
+                var a = parseFloat(prompt("Введите длину одного основания трапеции").replace(',','.'));
+                var b = parseFloat(prompt("Введите длину второго основания трапеции").replace(',','.'));
+                var h = parseFloat(prompt("Введите высоту трапеции").replace(',','.'));
+                var v = 1/2*(a+b)*h;
+                alert(`${a} ${b} ${h}\nПлощадь данной поверхности равна:${v}`);
+            }
+        </script>
+<br/>
+            <button onclick='rost()'>Узнайте рост малыша</button>
+            <button onclick='age_m()'>Подходите ли вы друг другу - мужская версия</button>
+            <button onclick='age_f()'>Подходите ли вы друг другу - женская версия</button>
+            <button onclick='time()'>Узнайте время</button>
+
+        <script>
+        
+            function rost() {
+                var a = parseFloat(prompt("Введите рост матери").replace(',','.'));
+                var b = parseFloat(prompt("Введите рост отца").replace(',','.'));
+                var c = (a+b)/2;
+                alert(`Рост мальчика: ${c+6.4} Рост девочки: ${c-6.4}`)
+            }
+        
+            function age_m() {
+                var a = parseFloat(prompt("Введите возраст женщины"));
+                var b = (a*2)-17;
+                alert(`Идеальный возраст мужчины: ${b}`)
+            }
+            function age_f() {
+                var a = parseFloat(prompt("Введите возраст мужчины"));
+                var b = (a/2)+7;
+                alert(`Идеальный возраст женщины: ${b}`)
+            }
+        
+            function time() {
+                var a = parseFloat(prompt("Введите количество секунд"));
+                var h = Math.floor(a/3600);
+                var m = Math.floor((a%3600)/60);
+                var s = (a%3600)%60;
+                alert(`Это ${h} часов и ${m} минут ${s} секунд`)
+            }
+        </script>
+<br/>
+        <button onclick='treugol()'>Треугольник</button>
+
+        <script>
+            function treugol() {
+                var a = prompt("Введите координаты первой вершины");
+                var b = prompt("Введите координаты второй вершины");
+                var c = prompt("Введите координаты третьей вершины");
+                var array1 = a.split(' ');
+                var x1 = parseInt(array1[0]);
+                var y1 = parseInt(array1[1]);
+                var array2 = b.split(' ');
+                var x2 = parseInt(array2[0]);
+                var y2 = parseInt(array2[1]);
+                var array3 = c.split(' ');
+                var x3 = parseInt(array3[0]);
+                var y3 = parseInt(array3[1]);
+                var da = parseFloat(Math.abs(Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2))).toFixed(2));
+                var db = parseFloat(Math.abs(Math.sqrt(Math.pow((x3-x2),2)+Math.pow((y3-y2),2))).toFixed(2));
+                var dc = parseFloat(Math.abs(Math.sqrt(Math.pow((x3-x1),2)+Math.pow((y3-y1),2))).toFixed(2));
+                var p2 = (da + db + dc).toFixed(2);
+                var p = (p2 / 2).toFixed(2);
+                var s = (Math.sqrt(p*(p-da)*(p-db)*(p-dc))).toFixed(2);
+                console.log (p2, p, s)
+                var ha = (2*s/da).toFixed(2);
+                var hb = (2*s/db).toFixed(2);
+                var hc = (2*s/dc).toFixed(2);
+                var rv = (Math.sqrt((p-da)*(p-db)*(p-dc)/p)).toFixed(2);
+                var ro = (da*db*dc/(4*s)).toFixed(2);
+                var ma = (0.5*Math.sqrt(2*(db*db)+2*(dc*dc)-(da*da))).toFixed(2);
+                var mb = (0.5*Math.sqrt(2*(da*da)+2*(dc*dc)-(db*db))).toFixed(2);
+                var mc = (0.5*Math.sqrt(2*(db*db)+2*(da*da)-(dc*dc))).toFixed(2);
+                var ba = (2/(db+dc)*Math.sqrt(db*dc*p*(p-da))).toFixed(2);
+                var bb = (2/(da+dc)*Math.sqrt(da*dc*p*(p-db))).toFixed(2);
+                var bc = (2/(db+da)*Math.sqrt(db*da*p*(p-dc))).toFixed(2);
+
+                alert(`Длины сторон: \na=${da} \nb=${db} \nc=${dc}; \nПериметр=${p2} \nПлощадь=${s} 
+                \nРадиус вписанной окружности=${rv} \nРадиус описанной окружности=${ro} 
+                \nМедиана к стороне: \na=${ma} \nb=${mb} \nc=${mc}
+                \nБиссектриса к стороне: \na=${ba} \nb=${bb} \nc=${bc}
+                `);
+                /*\nВысоты к сторонам: \na=${va} \nb=${vb} \nc=${vc}
+                \nУгол А = ${ya} ${yar} \nУгол B = ${yb} ${ybr} \nУгол C = ${yc} ${ycr} */
+            }
+        </script>
+
+        <button onclick='To4ka()'>Координаты</button>
+
+        <script>
+        function To4ka() {
+            var x = alert(`Введите левую нижнюю координату начала квадрата`);
+            var array = x.split(' ');
+            var x1 = parseInt(array[0]);
+            var y1 = parseInt(array[1]);
+            var a = alert(`Введите длину стороны квадрата`);
+            var y = alert(`Введите координаты точки`);
+            var array1 = y.split(' ');
+            var x2 = parseInt(array1[0]);
+            var y2 = parseInt(array1[1]);
+ 
+
+            var x = -40;
+            var y = -60; 
+            var xp = new Array(x1); // Массив X-координат полигона
+            var yp = new Array(y1); // Массив Y-координат полигона
+            function inPoly(x1,y1){
+            var npol = xp.length;
+            var j = npol - 1;
+            var c = 0;
+            for (i = 0; i < npol;i++){
+                if ((((yp[i]<=y1) && (y1<yp[j])) || ((yp[j]<=y1) && (y1<yp[i]))) &&
+                (x1 > (xp[j] - xp[i]) * (y1 - yp[i]) / (yp[j] - yp[i]) + xp[i])) {
+                    c = !c
+                    }
+                    j = i;
+            }
+            return c;
+            }
+            inPoly(x1,y1);
+        }
+        </script>
+
+    </body>
